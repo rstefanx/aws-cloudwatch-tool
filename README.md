@@ -1,12 +1,12 @@
 aws-cloudwatch-tool
 ===================
-
-Amazon CloudWatch query tool for Zabbix
-
-Cloudwatch query script for use with Zabbix (or any other monitoring tool)
-Queries for the values over the last 20 minutes and returns the most recent value
 Author: Stefan Radu
 Web: https://github.com/rstefanx
+
+
+Amazon CloudWatch query tool is a script that can be used with Zabbix or any other monitoring tool to get values from AWS Cloudwatch. It queries for the values over the last 20 minutes and returns the most recent value. Can be modified to be used with Nagios or turned into a Munin plugin.
+It needs Pythom 2.7 and Boto library.
+
 
 Parameters:
 - MetricName. Eg: CurrConnections
