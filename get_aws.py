@@ -45,7 +45,7 @@ for r in regions:
 c = boto.ec2.cloudwatch.CloudWatchConnection(aws_access_key_id=accessKey, aws_secret_access_key=secretKey, region=reg)
 metrics = c.list_metrics(dimensions=dim)
 
-end = datetime.datetime.now()
+end = datetime.datetime.utcnow()
 start = end - datetime.timedelta(minutes=20)
 
 dataPoints = [];
@@ -55,7 +55,7 @@ for met in metrics:
         dataPoints = met.query(start, end, funcName)
 
 if len(dataPoints) > 0:
-    max = datetime.datetime.now() - datetime.timedelta(hours=1)
+    max = datetime.datetime.utcnow() - datetime.timedelta(hours=1)
     index = 0
     for i in range(0,len(dataPoints)):
         if max < dataPoints[i][u'Timestamp']:
